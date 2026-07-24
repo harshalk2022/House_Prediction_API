@@ -22,5 +22,6 @@ __pycache__/
 Thumbs.db
 
 # Model files
-house_model.joblib
-house_features.joblib
+# house_model.joblib
+# house_features.joblib
+models/

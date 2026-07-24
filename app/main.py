@@ -5,8 +5,8 @@ from pydantic import BaseModel, Field
 
 app = FastAPI()
 
-model = joblib.load("house_model.joblib")
-features = joblib.load("house_features.joblib")
+model = joblib.load("models/house_model.joblib")
+features = joblib.load("models/house_features.joblib")
 
 # input schema
 class HouseFeatures(BaseModel):
