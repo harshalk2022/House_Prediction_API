@@ -42,23 +42,23 @@ def health():
 def predict(house: HouseFeatures):
     try:
         input_data = pd.DataFrame([{
-            MedInc: house.MedInc,
-            HouseAge: house.HouseAge,
-            AveRooms: house.AveRooms,
-            AveBedrms:house.AveBedrms,
-            Population: house.Population,
-            AveOccup: house.AveOccup,
-            Latitude: house.Latitude,
-            Longitude:house.Longitude
+            "MedInc": house.MedInc,
+            "HouseAge": house.HouseAge,
+            "AveRooms": house.AveRooms,
+            "AveBedrms":house.AveBedrms,
+            "Population": house.Population,
+            "AveOccup": house.AveOccup,
+            "Latitude": house.Latitude,
+            "Longitude":house.Longitude
         }])
 
-        predicted = model.predict(input)[0]
+        predicted = model.predict(input_data)[0]
         price_usd = predicted * 100000
 
         return{
           "predicted_price": f"${price_usd:,.0f}",
           "predicted_price_short": f"${predicted:.2f} hundred thousands",  
-          "fidence_range": f"${price_usd - 39000:,.0f} to ${price_usd +39000:,.0f}"
+          "confidence_range": f"${price_usd - 39000:,.0f} to ${price_usd +39000:,.0f}"
         }
 
     except Exception as e:
