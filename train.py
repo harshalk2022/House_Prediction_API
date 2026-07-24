@@ -1,3 +1,4 @@
+import os
 from sklearn.datasets import fetch_california_housing
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
@@ -30,6 +31,6 @@ r2 = r2_score(y_test, y_pred)
 
 print(f"average error: ${mae*100000:,.0f}")
 
-
-joblib.dump(model, "house_model.joblib")
-joblib.dump(list(X.columns), "house_features.joblib")
+os.makedirs("models", exist_ok=True)
+joblib.dump(model, "models/house_model.joblib")
+joblib.dump(list(X.columns), "models/house_features.joblib")
